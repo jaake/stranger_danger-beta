@@ -1,0 +1,222 @@
+// Place all the styles related to the images controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+html {
+	height: 100%;
+	min-height: 100%;
+}
+
+//header {
+	//background-color: pink;
+	//position: fixed;
+	//min-height: 8em;
+	//width: 100%;
+	//z-index: 1;
+//}
+
+@font-face {
+    font-family: 'desyrel';
+    src: url(font-path('desyrel-webfont.eot') + "?#iefix") format('embedded-opentype'),
+         url(font-path('desyrel-webfont.woff')) format('woff'), 
+         url(font-path('desyrel-webfont.ttf'))  format('truetype'),
+         url(font-path('desyrel-webfont.svg') + "#desyrel") format('svg');
+}
+
+body {
+  background: url('Nashville_skyline.png') no-repeat;
+  background-color: #000;
+  background-position: 50% 25%;
+  color: #333;
+  font-family: desyrel, verdana, arial, helvetica, sans-serif;
+  font-size: 13px;
+  line-height: 18px;
+  min-height: 100%;
+}
+
+footer {
+
+}
+
+#head {
+	& img {
+	    max-height: 550px;
+	    float:left;
+        position: relative;
+        width: 33%;
+        padding-top: 30px;
+        padding-bottom: 30px;
+
+	}
+}
+
+#logo {
+	margin-bottom: 20em;
+	& h1 {
+	color: #FF14AA;
+	font-size: 75px;
+	text-align: center;
+	}
+}
+
+#tag {
+    display: none;
+	position: fixed;
+	bottom: 18px;
+	right: 9px;
+}
+
+#publish {
+    overflow: hidden;
+}
+
+#image_feed {
+    //right: 9px;
+	padding: 10px 0 0 0;
+	overflow: hidden;	
+	& ul {
+      list-style-type: none;
+    }
+
+}
+
+.image_photo {
+    color: #FF14AA;
+    font-weight: bold;
+}
+
+#notify {
+	
+}
+
+.menu_button {
+  padding: 25px;
+}
+
+#menu {
+  position: absolute;
+  top: 0px;
+  left: 0px;
+  text-align: center;
+  transform: translatex(-100%);
+  transition: all 200ms ease-in-out;
+  background: rgba(0,0,0,0.8);
+  padding: 20px;
+  height: 100%;
+  z-index: 10;
+  & li {
+    text-align: left;
+    padding: 15px 0 0 0;
+  }
+}
+
+#menu.show {
+  transform: translatex(0%);
+  transition: all 200ms ease-in-out;
+}
+
+#lat {
+	display: none;
+}
+
+#lng {
+	display: none;	
+}
+
+.square {
+    width: 590px;
+    max-width: 100%;
+	border-color: #ECECEC;
+	border-style: solid;
+	border-width: 20px 20px 0 20px;
+	background: #ECECEC;
+	padding-bottom: 15px;
+
+	& .distance {
+	  color: #FF14AA;
+	  font-style: bold;
+      font-size: 32px;
+	  width: 550px;
+	  max-width: 100%;
+	  height: 90px;
+	  text-align: right;
+	}
+
+	& p { 
+	    display: none;    
+	} 
+
+}
+
+.nav {
+  float: left;
+  max-height: 100px;
+}
+
+#photo {
+	text-align: center;
+	position: fixed;
+	bottom: 2px;
+	left: 50%;
+	margin: auto;
+}
+
+.file-wrapper {
+	cursor: pointer;
+    display: inline-block;
+    overflow: hidden;
+    position: relative;
+    right: 38px;
+	& input {
+        cursor: pointer;
+        height: 100%;
+        position: absolute;
+        right: 0;
+        top: 0;
+        font-size: 100px;
+        z-index: 1;
+        filter: alpha(opacity=1);
+        -moz-opacity: 0.01;
+        opacity: 0.01;
+	}
+	& .button {
+	    background: #FF14AA;
+        -moz-border-radius: 5px;
+        -webkit-border-radius: 5px;
+        border-radius: 5px;
+        cursor: pointer;
+        display: inline-block;
+        font-size: 11px;
+        font-weight: bold;
+        padding: 4px 18px;
+        text-transform: uppercase;
+	}
+}
+
+#loader {
+	position: fixed;
+	bottom: 30px;
+	left: 50%;
+	& img {
+	    position: relative;
+	    right: 10px;
+	}
+}
+
+#locating {
+	position: fixed;
+	bottom: 30px;
+	left: 50%;
+	& img {
+	    position: relative;
+	    right: 49px;
+	}
+}
+
+#terms-link {
+    text-align: center;
+	& h6 {
+	    color: white;
+	}
+}

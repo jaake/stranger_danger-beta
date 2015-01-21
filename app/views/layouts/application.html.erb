@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title><%= content_for?(:title) ? yield(:title) : "StrangerDanger" %></title>
+
+    <%= stylesheet_link_tag    "application" %>
+    <%= javascript_include_tag "vendor/modernizr" %>
+    <%= csrf_meta_tags %>
+  </head>
+
+  <body>
+    <div id="menu">
+      <a href='' class='menu-toggle'>CLOSE</a>
+      <ul>
+        <li><a href='' data-reveal-id="about">About</a></li>
+        <li><a href='' data-reveal-id="map">Map</a></li>
+        <li><a href='' data-reveal-id="terms">Terms and Conditions</a></li>
+      </ul>
+    </div>
+    <header> 
+    <div class="menu_button">
+      <a href='' class='menu-toggle'>MENU</a>
+    </div>
+    <div id="logo" class="small-12 small-centered large-7 large-centered columns">
+      <h1>Stranger</h1>
+      <div id="head" class="small-12 columns"><%= image_tag(@faces[0])%><%= image_tag(@faces[1])%><%= image_tag(@faces[2])%></div>
+      <h1>Danger</h1>
+    </div>
+    </header>
+
+    <%= yield %>
+
+    <div class="publish">
+      <%= form_for @image, :html => { :multipart => true }, :remote => true do |f| %>
+      <% if @image.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(@image.errors.count, "error") %> prohibited this image from being saved:</h2>
+        <ul>
+          <% @image.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+      <% end %>
+      <div id="lat" class="field">
+        <%= f.text_field :latitude %>
+      </div>
+      <div id="lng" class="field">
+        <%= f.text_field :longitude %>
+      </div>
+      <!-- <div class="field"> 
+        <= f.label :address %><br>
+        <= f.text_field :address %>
+      </div> -->
+      <!-- <div class="field">
+        <= f.label :tag_1 %><br>
+        <= f.text_field :tag_1 %>
+      </div>
+      <div class="field">
+        <= f.label :tag_2 %><br>
+        <= f.text_field :tag_2 %>
+      </div>
+      <div class="field">
+        <= f.label :tag_3 %><br>
+        <= f.text_field :tag_3 %>
+      </div> -->
+
+    <footer>
+      <div id="locating">
+        <%= image_tag("locating.gif") %>
+      </div>
+      <div id="loader">
+        <%= image_tag("loader.gif") %>
+      </div>
+      <div id="photo" class="field">
+        <span class="file-wrapper">
+          <%= f.file_field :photo, :class => 'image_photo'%>
+          <span class="button">Photo</span>
+        </span>
+      </div>  
+      <div id="tag" class="actions">
+        <%= f.submit %>
+      </div>
+      <% end %>
+      <div id="about" class="reveal-modal" data-reveal>
+        <h2>Stranger Danger</h2>
+	<p>This site is a fun way to collect graffiti, geo-cache, scavenger hunt, promote shows, or just see what's been going on around Nashville.</p>
+	<p>New photos are blue and as they get older they turn pink, anyone can post, just press the photo button. Tap the compass to navigate to any image location.</p>
+        <p>If you can't see the photo feed make sure that browser location sharing settings are turned on.</p>
+        <p>If you post a photo keep in mind that it is public and that you cannot delete it. Imagine you are taking a polaroid from wherever you are standing and that you drop it right as the image begins to appear, then suddenly it melts into the floor unable to ever be moved again!</p>
+        <a class="close-reveal-modal">&#215;</a>
+      </div>
+      <div id="map" class="reveal-modal" data-reveal>
+        <h2>Coming Soon!</h2>
+	<p>Soon there will be a map view for a broader perspective.</p> 
+        <a class="close-reveal-modal">&#215;</a>
+      </div>
+      <div id="terms" class="reveal-modal" data-reveal>
+        <h2>Use at your own risk.</h2>
+        <h4>Everything you post is public and cannot be deleted..</h4>
+        <p class="lead">Terms</p>
+        <p>Stranger Danger offers this Web site, including all information, software, products and services available from this Web site or offered as part of or in conjunction with this Web site (Stranger Danger), to you, the user, conditioned upon your acceptance of all of the terms, conditions, policies and notices stated here. Stranger Danger reserves the right to make changes to these Terms and Conditions immediately by posting the changed Terms and Conditions in this location.
+        <p>Your continued use of this site constitutes your agreement to all such terms, conditions and notices, and any changes to the Terms and Conditions made by Stranger Danger.</p>
+        <p>The term 'Stranger Danger' or 'us' or 'we' refers to the owner of the website. The term 'you' refers to the user or viewer of our website.</p>
+        <p>The use of this website is subject to the following terms of use:</p>
+        <p>Use the website at your own risk. This website is provided to you "as is," without warranty of any kind either express or implied. Neither Stranger Danger nor its employees, agents, third-party information providers, merchants, licensors or the like warrant that the Web site or its operation will be accurate, reliable, uninterrupted or error-free. No agent or representative has the authority to create any warranty regarding the Web site on behalf of Stranger Danger. Stranger Danger reserves the right to change or discontinue at any time any aspect or feature of the Web site.</p>
+        <a class="close-reveal-modal">&#215;</a>
+      </div>
+    </footer>
+    </div>
+    <%= javascript_include_tag "application" %>
+  </body>
+</html>
