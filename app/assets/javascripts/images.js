@@ -12,12 +12,6 @@ $(document).ready(function() {
 var audio = new Audio('stranger.mp3');
 
 //$('#image_photo').on('change', auto_push());
-$(function () {
-   $('.menu-toggle').click(function () {
-     $('#menu').toggleClass('show');
-     return false;
-   });
-});
 
 function locating() {
         $('#locating').hide();
