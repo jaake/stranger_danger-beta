@@ -38,6 +38,32 @@
   </div>
   <br>
   <% end %>
+  <% @cold_10.each do |image| %> 
+  <div class="square">
+    <%= image_tag image[1].photo.url(:small) %>
+    <div class="distance">
+      <%= link_to(image_tag(image[2], :class => "nav"), "http://maps.google.com/maps?z=12&t=m&q=loc:#{image[4][0]}+#{image[4][1]}") %>
+      <br>
+      <br>
+      <%= image[3].round(2) %> Miles
+      <p><%= image[0] %></p>
+    </div>
+  </div>
+  <br>
+  <% end %>
+  <% @cold_15.each do |image| %> 
+  <div class="square">
+    <%= image_tag image[1].photo.url(:small) %>
+    <div class="distance">
+      <%= link_to(image_tag(image[2], :class => "nav"), "http://maps.google.com/maps?z=12&t=m&q=loc:#{image[4][0]}+#{image[4][1]}") %>
+      <br>
+      <br>
+      <%= image[3].round(2) %> Miles
+      <p><%= image[0] %></p>
+    </div>
+  </div>
+  <br>
+  <% end %>
   <% @cold.each do |image| %> 
   <div class="square">
     <%= image_tag image[1].photo.url(:small) %>
