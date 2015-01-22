@@ -10,6 +10,8 @@ class ImagesController < ApplicationController
     @warmest = []
     @warmer = []
     @warm = []
+    @cold_10 = []
+    @cold_15 = []
     @cold = []
     images.each do |image|
       user_location = [@lat,@lng]
@@ -40,18 +42,26 @@ class ImagesController < ApplicationController
         @warmer.append(holder) 
       elsif distance < 5.0
         @warm.append(holder)
-      elsif distance < 25.0
+      elsif distance < 10.0
+        @cold_10.append(holder)
+      elsif distance < 15.0
+        @cold_15.append(holder)    
+      else
         @cold.append(holder)
       end
     end
     @warmest.reverse!
-    @warmest = @warmest[0..14]
+    @warmest = @warmest[0..19]
     @warmer.reverse!
-    @warmer = @warmer[0..29]
+    @warmer = @warmer[0..19]
     @warm.reverse!
-    @warm = @warm[0..54]
+    @warm = @warm[0..19]
+    @cold_10.reverse!
+    @cold_10 = @cold_10[0..19]
+    @cold_15.reverse!
+    @cold_15 = @cold_15[0..19]
     feed_length = @warm.length + @warmer.length + @warmest.length
-    cold_range_end = 100 - feed_length
+    cold_range_end = 101 - feed_length
     @cold.reverse!
     @cold = @cold[0..cold_range_end]
   end

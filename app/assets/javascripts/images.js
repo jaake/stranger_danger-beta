@@ -23,7 +23,7 @@ function auto_push() {
         $("#tag").submit();
         $("#photo").hide();
         $("#loader").show();
-	$('#image_photo').val("");
+	      $('#image_photo').val("");
     } else {
         //console.log('no photo');   
     }
